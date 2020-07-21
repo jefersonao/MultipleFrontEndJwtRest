@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Cliente - Easy Fashion</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.7 -->
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+   integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" 
+  integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="../../../assets/AdminLTE.css">
+  <!--  AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load.  -->
+  <link rel="stylesheet" href="../../../assets/_all-skins.min.css">
+  
+ <!--   HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+  <header class="main-header" id="Topo">
+    <!-- Logo -->
+    <a href="cliente.html" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>E</b>asy</span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>Easy</b>Fashion</span>
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle fs-bars" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+          </li>
+        </ul>
+      </div>
+      <a class="btn-topo scroll" id="btn-topo" href="#Topo"><i class="fas fa-arrow-up"></i></a>
+    </nav>
+  </header>
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+    </section>
+    <!-- /.sidebar -->
+  </aside>
+  
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <div class="row">
+      <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="active scroll"><a href="#DadosOficiais">Dados Oficiais <span class="sr-only">(current)</span></a></li>
+          <li><a class="scroll" href="#Complemento">Complemento</a></li>
+          <li><a class="scroll" href="#MAPA">Mapa</a></li>
+          <li><a class="scroll" href="#Foto">Foto</a></li>
+          <li><a class="scroll" href="#PessoasImportantes">Pessoas Importantes</a></li>
+          <li><a class="scroll" href="#DadosFinanceiro">Dados Financeiros</a></li>
+        </ul>
+      </div>
+    </div>
+
+
+    <form #clienteform="ngForm" (ngSubmit)="onSubmit(clienteform)">
+      <!-- necessário enviar clienteform como parametro em "onSubmit()" -->
+    <input type="hidden" [(ngModel)]="clienteService.selectedCliente.idCliente" name="idCliente">
+
+      <div class="col-md-12" id="DadosOficiais">
+        <div class="box box-primary">
+          <div class="box-header with-border">
+            <h3 class="box-title">Dados Oficiais <i class="far fa-id-card"></i></h3>
+    
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+            </div>
+          </div>
+          <div class="box-body">
+            <section class="content">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="box-body">
+
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-id-card"></i></span>
+                      <input type="text" class="form-control" name="Documento"  #documento="ngModel"
+                      value="{{clienteService.clienteList?.documento}}"
+                      [(ngModel)]="clienteService.selectedCliente.documento" placeholder="Documento">
+                    </div>
+
+                    <br>
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-id-card"></i></span>
+                      <input type="number" class="form-control" name="idCadastroAntigo" #IdCadastroAntigo="ngModel" 
+                      value="{{clienteService.clienteList?.idCadastroAntigo}}"
+                      [(ngModel)]="clienteService.selectedCliente.idCadastroAntigo" placeholder="ID Cadastro Antigo">
+                    </div>
+                    <br>
+
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                      <input type="text" class="form-control" name="nome"  #nome="ngModel"
+                       value="{{clienteService.clienteList?.nome}}"
+                      [(ngModel)]="clienteService.selectedCliente.nome" placeholder="Nome"> 
+                    </div>
+
+                    <br>
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="far fa-id-card"></i></span>
+                      <input type="number" class="form-control" name ="RG" placeholder="RG">
+                    </div>
+                    <br>
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fas fa-hat-wizard"></i></span>
+                      <input type="text" class="form-control" name="fantasia" #fantasia="ngModel" 
+                      value="{{clienteService.clienteList?.fantasia}}"
+                      [(ngModel)]="clienteService.selectedCliente.fantasia" placeholder="Nome Fantasia">
+                    </div>
+                    <br>
+
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fas fa-hat-wizard"></i></span>
+                      <input type="text" class="form-control" name="razao" #razao="ngModel" 
+                      value="{{clienteService.clienteList?.razao}}"
+                      [(ngModel)]="clienteService.selectedCliente.razao" placeholder="Razão Social">
+                    </div>
+                   
+                    <hr>
+                    <h4>Endereço <i class="fa fa-home"></i></h4>
+                    <div class="box-body">
+                      <div class="row">
+                         <div class="col-md-8 mrt">
+                          <input type="text" class="form-control" name="Logradouro" #Logradouro="ngModel" 
+                          [(ngModel)]="clienteService.selectedCliente.logradouro" placeholder="Logradouro">                 
+                        </div> 
+                         <div class="col-md-4 mrt">
+                          <input type="number"class="form-control"  name="Numero" #Numero="ngModel" 
+                          [(ngModel)]="clienteService.selectedCliente.numero"class="form-control" 
+                          placeholder="Numero">
+                        </div> 
+                         <div class="col-md-4 mrt">
+                          <input type="text" class="form-control" name="Complemento"
+                          placeholder="Complemento" [(ngModel)]="clienteService.selectedCliente.Complemento">
+                        </div>
+                        <div class="col-md-3 mrt">
+                          <input type="number" class="form-control" name="CEP" #CEP="ngModel" 
+                          [(ngModel)]="clienteService.selectedCliente.CEP" placeholder="CEP">
+                        </div>
+                        <div class="col-md-5 mrt">
+                          <input type="text" class="form-control" name="Bairro" #Bairro="ngModel" 
+                          [(ngModel)]="clienteService.selectedCliente.Bairro" placeholder="Bairro">
+                        </div>
+                        <div class="col-md-7 mrt">
+                          <input type="text" class="form-control" name="Cidade" #Cidade="ngModel"
+                          [(ngModel)]="clienteService.selectedCliente.Cidade" placeholder="Cidade">
+                        </div> 
+                         <div class="col-md-5 mrt">
+                          <select class="form-control" >
+                            <option>Estado</option>
+                            <option>Acre (AC)</option>
+                            <option>Alagoas (AL)</option>
+                            <option>Amapá (AP)</option>
+                            <option>Amazonas (AM)</option>
+                            <option>Bahia (BA)</option>
+                            <option>Ceará (CE)</option>
+                            <option>Distrito Federal (DF)</option>
+                            <option>Espírito Santo (ES)</option>
+                            <option>Goiás (GO)</option>
+                            <option>Maranhão (MA)</option>
+                            <option>Mato Grosso (MT)</option>
+                            <option>Mato Grosso do Sul (MS)</option>
+                            <option>Minas Gerais (MG)</option>
+                            <option>Pará (PA)</option>
+                            <option>Paraíba (PB)</option>
+                            <option> Paraná (PR)</option>
+                            <option>Pernambuco (PE)</option>
+                            <option>Piauí (PI)</option>
+                            <option>Rio de Janeiro (RJ)</option>
+                            <option>Rio Grande do Norte (RN)</option>
+                            <option>Rio Grande do Sul (RS)</option>
+                            <option>Rondônia (RO)</option>
+                            <option>Roraima (RR)</option>
+                            <option>Santa Catarina (SC)</option>
+                            <option>São Paulo (SP)</option>
+                            <option> Sergipe (SE)</option>
+                            <option> Tocantins (TO)</option>
+                          </select> 
+                         </div> 
+                      </div>
+                    </div>
+                    <hr>
+                    <h4>Pessoal <i class="far fa-user"></i></h4>
+                    <div class="box-body">
+                      <div class="row">
+                        <div class="col-md-3 mrt">
+                          <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                            <input type="tel" class="form-control" name="Telefone" value="{{clienteService.clienteList?.telefone}}"
+                            [(ngModel)]="clienteService.selectedCliente.telefone" placeholder="Telefone">
+                          </div>
+                        </div>
+                        <div class="col-md-9 mrt">
+                          <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                            <input type="email" class="form-control" name="emailSintegra" 
+                            value="{{clienteService.clienteList?.emailSintegra}}"
+                            [(ngModel)]="clienteService.selectedCliente.emailSintegra" placeholder="Email Sintegra">
+                          </div>
+                        </div>
+                        <div class="col-md-9 mrt">
+                          <div class="input-group">
+                            <span class="input-group-addon"><i class="fas fa-suitcase"></i></span>
+                            <input type="text" class="form-control" name="Ramo" #Ramo="ngModel"
+                            [(ngModel)]="clienteService.selectedCliente.Ramo" placeholder="Ramo Atividade">
+                          </div>
+                        </div>
+                        <div class="col-md-3 mrt">
+                          <select class="form-control">
+                            <option>Tipo Empresa</option>
+                            <option>EIRELLI</option>
+                            <option>EI</option>
+                            <option>LTDA</option>                              
+                            <option>MEI</option>
+                            <option>SS</option>
+                            <option>SA</option>
+                          </select>
+                        </div>
+                        <div class="col-md-3 mrt">
+                          <label>Ativo</label>
+                          <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>                                           
+                </div>                  
+              </div> 
+            </section>
+          </div>
+        </div>
+      </div>
+
+      <!-- COMPLEMENTO -->
+
+      <div class="col-md-12" id="Complemento">
+          <div class="box box-primary">
+              <div class="box-header with-border">
+              <h3 class="box-title">Complemento <i class="fas fa-file-signature"></i></h3>
+              <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                  </button>
+              </div>
+              </div>
+              <div class="box-body">
+                <section class="content">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="box-body">
+                        <div class="row">
+                          <div class="col-md-4 mrt">
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                              <input type="email" name="email" class="form-control" #Email
+                              [(ngModel)]="clienteService.selectedCliente.Email" placeholder="Email">
+                            </div>
+                          </div>
+                          <div class="col-md-4 mrt">
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                              <input type="text" name="Telefone" class="form-control" #Telefone
+                              [(ngModel)]="clienteService.selectedCliente.Telefone" placeholder="Telefone">
+                            </div>
+                          </div>
+                          <div class="col-md-4 mrt">
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="fa fa-mobile-alt"></i></span>
+                              <input type="tel" name="Celular" class="form-control" #Celular="ngModel"
+                              value="{{clienteService.clienteList?.celular}}"
+                              [(ngModel)]="clienteService.selectedCliente.celular" placeholder="Celular">
+                            </div>
+                          </div>
+                          <div class="col-md-8 mrt">
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="fa fa-globe-americas"></i></span>
+                              <input type="text" name="Site" class="form-control" #Site="ngModel"
+                               [(ngModel)]="clienteService.selectedCliente.Site" placeholder="Site">
+                            </div>
+                          </div>
+                          <div class="col-md-4 mrt">
+                            <select class="form-control">
+                              <option>Tipo Cliente</option>
+                              <option>Atacado</option>
+                              <option>Varejo</option>
+                              <option>Ecommerce</option>                              
+                            </select>
+                          </div>
+                          <div class="col-md-4 mrt">
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="fab fa-instagram"></i></span>
+                              <input type="text" name="Instagram" class="form-control" #instagram="ngModel"
+                              value="{{clienteService.clienteList?.instagram}}"
+                              [(ngModel)]="clienteService.selectedCliente.Instagram" placeholder="Instagram"  >
+                            </div>
+                          </div>
+                          <div class="col-md-4 mrt">
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="fab fa-twitter"></i></span>
+                              <input type="text" name="Twitter" class="form-control" #Twitter="ngModel" 
+                              [(ngModel)]="clienteService.selectedCliente.Twitter" placeholder="Twitter">
+                            </div>
+                          </div>
+                          <div class="col-md-4 mrt">
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="fab fa-facebook-square"></i></span>
+                              <input type="text" name="Facebook" class="form-control" #Facebook="ngModel"
+                              [(ngModel)]="clienteService.selectedCliente.Facebook" placeholder="Facebook">
+                            </div>
+                          </div>
+                          <div class="col-md-8 mrt">
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="fas fa-suitcase"></i></span>
+                              <input type="text" name="Ramo2"  class="form-control" #Ramo2="ngModel" 
+                               [(ngModel)]="clienteService.selectedCliente.Ramo2" placeholder="Ramo Atividade Secundario">
+                            </div>
+                          </div>
+                          <div class="col-md-4 mrt">
+                            <select class="form-control">
+                              <option>Marca</option>
+                              <option>Fleche D'or</option>
+                              <option>Jes</option>
+                              <option>Doiss</option>                              
+                            </select>
+                          </div>
+                          <div class="col-md-12 mrt">
+                            <label>Consumidor Final?</label>
+                            <label class="switch">
+                              <input type="checkbox">
+                              <span class="slider round"></span>
+                            </label>
+                          </div>
+                          <div class="col-md-12 mrt">
+                            <div class="form-group">
+                              <textarea class="form-control" rows="3" placeholder="Digite sua Observação"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </div>
+          </div>
+      </div>
+
+      <!-- MAPA -->
+
+      <div class="col-md-12" id="MAPA">
+          <div class="box box-primary">
+            <div class="box-header with-border">
+            <h3 class="box-title">Mapa <i class="fas fa-map-marked-alt"></i></h3>
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+            </div>
+            </div>
+            <div class="box-body">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="box-body">
+                    <div class="row">
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <!-- FOTO -->
+
+      <div class="col-md-12" id="Foto">
+        <div class="box box-primary">
+          <div class="box-header with-border">
+            <h3 class="box-title">Foto <i class="fas fa-camera-retro"></i></h3>
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+              </button>
+            </div>
+          </div>
+          <div class="box-body">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="box-body">
+                  <div class="row">
+                    <div class="col-md-4 mrt">
+                      <div class="input-group">
+                        <input type="file" id="exampleInputFile">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- PESSOAS IMPORTANTES 1 -->
+
+        <input  name="idpessoacerta1" type="hidden" value="20"
+        [(ngModel)]="clienteService.selectedCliente.idpessoacerta1">
+
+        <input name="idpessoacerta2" type="hidden" value="20"
+        [(ngModel)]="clienteService.selectedCliente.idpessoacerta2">
+
+        <input name="idPessoacerta3" type="hidden" value="20"
+        [(ngModel)]="clienteService.selectedCliente.idpessoacerta3">
+
+
+      <div class="col-md-12" id="PessoasImportantes">
+        <div class="box box-warning">
+          <div class="box-header with-border">
+            <h3 class="box-title">Pessoas Importantes <i class="fas fa-users"></i></h3>
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+              </button>
+            </div>
+          </div>
+          <div class="box-body">
+            <section class="content">
+              <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                  <li class="active"><a href="#tab_1" data-toggle="tab">Pessoa 1</a></li>
+                  <li><a href="#tab_2" data-toggle="tab">Pessoa 2</a></li>
+                  <li><a href="#tab_3" data-toggle="tab">Pessoa 3</a></li>
+                </ul>
+                <div class="tab-content">
+                  <div class="tab-pane active" id="tab_1">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="box-body">
+                          <div class="row">
+                            <div class="col-md-4 mrt">
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="fas fa-user"></i></span>
+                                <input type="text" class="form-control" placeholder="Nome" value="{{clienteService.clienteList?.nome}}">
+                              </div>
+                            </div>
+                            <div class="col-md-4 mrt">
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="far fa-id-card"></i></span>
+                                <input type="number" class="form-control" placeholder="CPF">
+                              </div>
+                            </div>
+                            <div class="col-md-4 mrt">
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                <input type="email" class="form-control" placeholder="Email">
+                              </div>
+                            </div>
+                            <div class="col-md-4 mrt">
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                <input type="tel" class="form-control" placeholder="Telefone">
+                              </div>
+                            </div>
+                            <div class="col-md-4 mrt">
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-mobile-alt"></i></span>
+                                <input type="tel" class="form-control" placeholder="Celular">
+                              </div>
+                            </div>
+                            <div class="col-md-4 mrt">
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="far fa-calendar-alt"></i></span>
+                                <input type="date" class="form-control">
+                              </div>
+                            </div>
+                            <div class="col-md-4 mrt">
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="fab fa-instagram"></i></span>
+                                <input type="text" class="form-control" placeholder="Instagram">
+                              </div>
+                            </div>
+                            <div class="col-md-4 mrt">
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="fab fa-twitter"></i></span>
+                                <input type="text" class="form-control" placeholder="Twitter">
+                              </div>
+                            </div>
+                            <div class="col-md-4 mrt">
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="fab fa-facebook-square"></i></span>
+                                <input type="text" class="form-control" placeholder="Faceboock">
+                              </div>
+                            </div>
+                            <div class="col-md-12">
+                              <hr>
+                              <h4>Endereço <i class="fa fa-home"></i></h4>
+                            </div>
+                            <div class="col-md-8 mrt">
+                              <input type="text" class="form-control" placeholder="Logradouro">
+                            </div>
+                            <div class="col-md-4 mrt">
+                              <input type="number" class="form-control" placeholder="Numero">
+                            </div>
+                            <div class="col-md-4 mrt">
+                              <input type="text" class="form-control" placeholder="Complemento">
+                            </div>
+                            <div class="col-md-4 mrt">
+                              <input type="number" class="form-control" placeholder="CEP">
+                            </div>
+                            <div class="col-md-4 mrt">
+                              <input type="text" class="form-control" placeholder="Cidade">
+                            </div>
+                            <div class="col-md-12 mrt">
+                              <select class="form-control">
+                                <option>Estado</option>
+                                <option>Acre (AC)</option>
+                                <option>Alagoas (AL)</option>
+                                <option>Amapá (AP)</option>
+                                <option>Amazonas (AM)</option>
+                                <option>Bahia (BA)</option>
+                                <option>Ceará (CE)</option>
+                                <option>Distrito Federal (DF)</option>
+                                <option>Espírito Santo (ES)</option>
+                                <option>Goiás (GO)</option>
+                                <option>Maranhão (MA)</option>
+                                <option>Mato Grosso (MT)</option>
+                                <option>Mato Grosso do Sul (MS)</option>
+                                <option>Minas Gerais (MG)</option>
+                                <option>Pará (PA)</option>
+                                <option>Paraíba (PB)</option>
+                                <option> Paraná (PR)</option>
+                                <option>Pernambuco (PE)</option>
+                                <option>Piauí (PI)</option>
+                                <option>Rio de Janeiro (RJ)</option>
+                                <option>Rio Grande do Norte (RN)</option>
+                                <option>Rio Grande do Sul (RS)</option>
+                                <option>Rondônia (RO)</option>
+                                <option>Roraima (RR)</option>
+                                <option>Santa Catarina (SC)</option>
+                                <option>São Paulo (SP)</option>
+                                <option> Sergipe (SE)</option>
+                                <option> Tocantins (TO)</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>                                           
+                      </div>                  
+                    </div>
+                  </div>
+
+                  <!-- PESSOAS IMPORTANTES 2 -->
+
+                  <div class="tab-pane" id="tab_2">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="box-body">
+                          <div class="row">
+                            <div class="col-md-4 mrt">
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="fas fa-user"></i></span>
+                                <input type="text" class="form-control" placeholder="Nome">
+                              </div>
+                            </div>
+                            <div class="col-md-4 mrt">
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="far fa-id-card"></i></span>
+                                <input type="number" class="form-control" placeholder="CPF">
+                              </div>
+                            </div>
+                            <div class="col-md-4 mrt">
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                <input type="email" class="form-control" placeholder="Email">
+                              </div>
+                            </div>
+                            <div class="col-md-4 mrt">
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                <input type="tel" class="form-control" placeholder="Telefone">
+                              </div>
+                            </div>
+                            <div class="col-md-4 mrt">
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-mobile-alt"></i></span>
+                                <input type="tel" class="form-control" placeholder="Celular">
+                              </div>
+                            </div>
+                            <div class="col-md-4 mrt">
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="far fa-calendar-alt"></i></span>
+                                <input type="text" class="form-control">
+                              </div>
+                            </div>
+                            <div class="col-md-4 mrt">
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="fab fa-instagram"></i></span>
+                                <input type="text" class="form-control" placeholder="Instagram">
+                              </div>
+                            </div>
+                            <div class="col-md-4 mrt">
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="fab fa-twitter"></i></span>
+                                <input type="text" class="form-control" placeholder="Twitter">
+                              </div>
+                            </div>
+                            <div class="col-md-4 mrt">
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="fab fa-facebook-square"></i></span>
+                                <input type="text" class="form-control" placeholder="Faceboock">
+                              </div>
+                            </div>
+                            <div class="col-md-12">
+                              <hr>
+                              <h4>Casa <i class="fa fa-home"></i></h4>
+                            </div>
+                            <div class="col-md-8 mrt">
+                              <input type="text" class="form-control" placeholder="Logradouro">
+                            </div>
+                            <div class="col-md-4 mrt">
+                              <input type="number" class="form-control" placeholder="Numero">
+                            </div>
+                            <div class="col-md-4 mrt">
+                              <input type="text" class="form-control" placeholder="Complemento">
+                            </div>
+                            <div class="col-md-4 mrt">
+                              <input type="number" class="form-control" placeholder="CEP">
+                            </div>
+                            <div class="col-md-4 mrt">
+                              <input type="text" class="form-control" placeholder="Cidade">
+                            </div>
+                            <div class="col-md-12 mrt">
+                              <select class="form-control">
+                                <option>Estado</option>
+                                <option>Acre (AC)</option>
+                                <option>Alagoas (AL)</option>
+                                <option>Amapá (AP)</option>
+                                <option>Amazonas (AM)</option>
+                                <option>Bahia (BA)</option>
+                                <option>Ceará (CE)</option>
+                                <option>Distrito Federal (DF)</option>
+                                <option>Espírito Santo (ES)</option>
+                                <option>Goiás (GO)</option>
+                                <option>Maranhão (MA)</option>
+                                <option>Mato Grosso (MT)</option>
+                                <option>Mato Grosso do Sul (MS)</option>
+                                <option>Minas Gerais (MG)</option>
+                                <option>Pará (PA)</option>
+                                <option>Paraíba (PB)</option>
+                                <option> Paraná (PR)</option>
+                                <option>Pernambuco (PE)</option>
+                                <option>Piauí (PI)</option>
+                                <option>Rio de Janeiro (RJ)</option>
+                                <option>Rio Grande do Norte (RN)</option>
+                                <option>Rio Grande do Sul (RS)</option>
+                                <option>Rondônia (RO)</option>
+                                <option>Roraima (RR)</option>
+                                <option>Santa Catarina (SC)</option>
+                                <option>São Paulo (SP)</option>
+                                <option> Sergipe (SE)</option>
+                                <option> Tocantins (TO)</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>                                           
+                      </div>                  
+                    </div>
+                  </div>
+
+                  <!-- PESSOAS IMPORTANTES 3 -->
+
+                  <div class="tab-pane" id="tab_3">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="box-body">
+                          <div class="row">
+                            <div class="col-md-4 mrt">
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="fas fa-user"></i></span>
+                                <input type="text" class="form-control" placeholder="Nome">
+                              </div>
+                            </div>
+                            <div class="col-md-4 mrt">
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="far fa-id-card"></i></span>
+                                <input type="number" class="form-control" placeholder="CPF">
+                              </div>
+                            </div>
+                            <div class="col-md-4 mrt">
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                <input type="email" class="form-control" placeholder="Email">
+                              </div>
+                            </div>
+                            <div class="col-md-4 mrt">
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                <input type="tel" class="form-control" placeholder="Telefone" 
+                                value="{{clienteService.clienteList?.telefone}}">
+                              </div>
+                            </div>
+                            <div class="col-md-4 mrt">
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-mobile-alt"></i></span>
+                                <input type="tel" class="form-control" placeholder="Celular"
+                                value="{{clienteService.clienteList?.celular}}">
+                              </div>
+                            </div>
+                            <div class="col-md-4 mrt">
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="far fa-calendar-alt"></i></span>
+                                <input type="text" class="form-control" placeholder="dd/mm/yy">
+                              </div>
+                            </div>
+                            <div class="col-md-4 mrt">
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="fab fa-instagram"></i></span>
+                                <input type="text" class="form-control" placeholder="Instagram">
+                              </div>
+                            </div>
+                            <div class="col-md-4 mrt">
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="fab fa-twitter"></i></span>
+                                <input type="text" class="form-control" placeholder="Twitter">
+                              </div>
+                            </div>
+                            <div class="col-md-4 mrt">
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="fab fa-facebook-square"></i></span>
+                                <input type="text" class="form-control" placeholder="Facebook">
+                              </div>
+                            </div>
+                            <div class="col-md-12">
+                              <hr>
+                              <h4>Endereço <i class="fa fa-home"></i></h4>
+                            </div>
+                            <div class="col-md-8 mrt">
+                              <input type="text" class="form-control" placeholder="Logradouro">
+                            </div>
+                            <div class="col-md-4 mrt">
+                              <input type="number" class="form-control" placeholder="Numero">
+                            </div>
+                            <div class="col-md-4 mrt">
+                              <input type="text" class="form-control" placeholder="Complemento">
+                            </div>
+                            <div class="col-md-4 mrt">
+                              <input type="number" class="form-control" placeholder="CEP">
+                            </div>
+                            <div class="col-md-4 mrt">
+                              <input type="text" class="form-control" placeholder="Cidade">
+                            </div>
+                            <div class="col-md-12 mrt">
+                              <select class="form-control">
+                                <option>Estado</option>
+                                <option>Acre (AC)</option>
+                                <option>Alagoas (AL)</option>
+                                <option>Amapá (AP)</option>
+                                <option>Amazonas (AM)</option>
+                                <option>Bahia (BA)</option>
+                                <option>Ceará (CE)</option>
+                                <option>Distrito Federal (DF)</option>
+                                <option>Espírito Santo (ES)</option>
+                                <option>Goiás (GO)</option>
+                                <option>Maranhão (MA)</option>
+                                <option>Mato Grosso (MT)</option>
+                                <option>Mato Grosso do Sul (MS)</option>
+                                <option>Minas Gerais (MG)</option>
+                                <option>Pará (PA)</option>
+                                <option>Paraíba (PB)</option>
+                                <option> Paraná (PR)</option>
+                                <option>Pernambuco (PE)</option>
+                                <option>Piauí (PI)</option>
+                                <option>Rio de Janeiro (RJ)</option>
+                                <option>Rio Grande do Norte (RN)</option>
+                                <option>Rio Grande do Sul (RS)</option>
+                                <option>Rondônia (RO)</option>
+                                <option>Roraima (RR)</option>
+                                <option>Santa Catarina (SC)</option>
+                                <option>São Paulo (SP)</option>
+                                <option> Sergipe (SE)</option>
+                                <option> Tocantins (TO)</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>                                           
+                      </div>                  
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dados Financeiros -->
+
+      <div class="col-md-12" id="DadosFinanceiro">
+        <div class="box box-primary">
+          <div class="box-header with-border">
+            <h3 class="box-title"> Dados Financeiro/Contábil/Fiscal <i class="fas fa-calculator"></i></h3>
+
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+              </button>
+            </div>
+            <!-- /.box-tools -->
+          </div>
+          <!-- /.box-header -->
+          <div class="box-body">
+            <section class="content">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="box-body">
+                    <div class="row">
+                      <div class="col-md-4 mrt">
+                        <div class="input-group">
+                          <span class="input-group-addon"><i class="fas fa-dollar-sign"></i></span>
+                          <input type="text" class="form-control" placeholder="Limite de Credito">
+                        </div>
+                      </div>
+                      <div class="col-md-4 mrt">
+                        <div class="input-group">
+                          <span class="input-group-addon"><i class="far fa-calendar-alt"></i></span>
+                          <input type="text" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-4 mrt">
+                        <select class="form-control">
+                          <option>Conta Contábil</option>
+                          <option>103 - A RECEBER</option>
+                          <option>10301 - A RECEBER DE CLIENTES</option>
+                          <option>107 - INVESTIMENTO EM COLIGADAS</option>                   
+                        </select>
+                      </div>
+                      <div class="col-md-4 mrt">
+                        <select class="form-control">
+                          <option>Tributação</option>
+                          <option>Lucro Presumido</option>
+                          <option>Lucro Real</option>                  
+                        </select>
+                      </div>
+                      <div class="col-md-4 mrt">
+                        <div class="input-group">
+                          <span class="input-group-addon"><i class="fas fa-dollar-sign"></i></span>
+                          <input type="number" class="form-control" placeholder="Risco">
+                        </div>
+                      </div>
+                      <div class="col-md-4 mrt">
+                        <div class="input-group">
+                          <span class="input-group-addon"><i class="fas fa-dollar-sign"></i></span>
+                          <input type="number" class="form-control" placeholder="Risco Debito">
+                        </div>
+                      </div>
+
+                      <div class="col-md-4 mrt">
+                        <div class="input-group">
+                          <span class="input-group-addon"><i class="fas fa-dollar-sign"></i></span>
+                          <input type="number" class="form-control" placeholder="Cnae" name="cnae"
+                          [(ngModel)]="clienteService.selectedCliente.cnae" value="{{clienteService.clienteList?.cnae}}">
+                        </div>
+                      </div>
+
+                      <div class="col-md-4 mrt">
+                        <div class="input-group">
+                          <span class="input-group-addon"><i class="fas fa-dollar-sign"></i></span>
+                          <input type="number" class="form-control" placeholder="Cnae2" name="cnae2"
+                          [(ngModel)]="clienteService.selectedCliente.cnae2" value="{{clienteService.clienteList?.cnae2}}">
+                        </div>
+                      </div>
+                     
+                      <div class="col-md-12 mrt">
+                        <label>Bloqueado</label>
+                        <label class="switch">
+                          <input type="checkbox">
+                          <span class="slider round"></span>
+                        </label>
+                      </div>
+
+                        
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+          <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+      </div>
+      
+      <div class="col-md-12" id="buttons">
+          <div class="box box-primary">
+            <div class="box-header with-border">
+  
+              
+  
+              <div class="box-tools pull-right">
+              <button type="submit" class="btn btn-primary btn-lg mrt" >Cadastrar Cliente</button>
+            </div>
+            <div class="col-md-4">
+               <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Consultar Cliente</button>
+            </div>
+            
+           
+              
+      
+          </div>
+        </div>
+        </div>
+     
+    </form> 
+
+     
+
+      <!-- Modal -->
+      <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-sm">
+          
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Consulta</h4>
+            </div>
+            <div class="modal-body">
+              <input type="search" placeholder="Insira o ID" name = "idCliente" 
+              #idCliente="ngModel" [(ngModel)]="clienteService.selectedCliente.idCliente">                
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal" >Fechar</button>
+              <button type="submit" class="btn btn-info " data-toggle="modal" data-target="#myModal" 
+              (click)=onClick(idCliente.value)>Carregar </button>
+              
+              
+            </div>
+          </div>
+
+          
+         
+
+        </div>
+  </div>
+  </div>
+
+  
+  
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div class="pull-right hidden-md">
+      <b>Version</b> 2.4.0
+    </div>
+    <strong>Copyright &copy; 2018 <a href="">Easy Fashion</a>.</strong> Todos direitos reservados.
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Create the tabs -->
+    <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+      <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa "></i></a></li>
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <!-- Home tab content -->
+      <div class="tab-pane" id="control-sidebar-home-tab">
+
+      </div>
+      <!-- /.tab-pane -->
+      <!-- Stats tab content -->
+      <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+      <!-- /.tab-pane -->
+      <!-- Settings tab content -->
+
+      <!-- /.tab-pane -->
+    </div>
+  </aside>
+  
+  <!-- /.control-sidebar -->
+  <!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
+</div>
+<!-- jQuery 3 -->
+<script src="../../../../node_modules/jquery/dist/jquery.js"></script>
+<script src="../../../assets/jquery.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- AdminLTE App -->
+<script src="../../../assets/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../../../assets/demo.js"></script>
+</body>
+</html>

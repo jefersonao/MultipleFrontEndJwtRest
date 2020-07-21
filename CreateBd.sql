@@ -1,0 +1,132 @@
+﻿USE [master]
+GO
+/****** Object:  Database [Yellow]    Script Date: 12/07/2020 18:39:03 ******/
+CREATE DATABASE [Yellow]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'Yellow', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.SQLEXPRESS2019\MSSQL\DATA\Yellow.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON 
+( NAME = N'Yellow_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.SQLEXPRESS2019\MSSQL\DATA\Yellow_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+ WITH CATALOG_COLLATION = DATABASE_DEFAULT
+GO
+ALTER DATABASE [Yellow] SET COMPATIBILITY_LEVEL = 150
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [Yellow].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [Yellow] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [Yellow] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [Yellow] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [Yellow] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [Yellow] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [Yellow] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [Yellow] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [Yellow] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [Yellow] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [Yellow] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [Yellow] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [Yellow] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [Yellow] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [Yellow] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [Yellow] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [Yellow] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [Yellow] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [Yellow] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [Yellow] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [Yellow] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [Yellow] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [Yellow] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [Yellow] SET RECOVERY SIMPLE 
+GO
+ALTER DATABASE [Yellow] SET  MULTI_USER 
+GO
+ALTER DATABASE [Yellow] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [Yellow] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [Yellow] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [Yellow] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+GO
+ALTER DATABASE [Yellow] SET DELAYED_DURABILITY = DISABLED 
+GO
+ALTER DATABASE [Yellow] SET QUERY_STORE = OFF
+GO
+USE [Yellow]
+GO
+/****** Object:  Table [dbo].[Contact]    Script Date: 12/07/2020 18:39:03 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Contact](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nchar](150) NOT NULL,
+	[SocialNumber] [nchar](11) NOT NULL,
+	[Email] [nchar](60) NOT NULL,
+	[Phone] [nchar](11) NOT NULL,
+	[Pass] [nchar](50) NOT NULL,
+ CONSTRAINT [PK_Contato] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Login]    Script Date: 12/07/2020 18:39:03 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Login](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[UserLogin] [nchar](60) NOT NULL,
+	[Pass] [nchar](30) NOT NULL,
+	[Name] [nchar](20) NOT NULL,
+ CONSTRAINT [PK_Login] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[Contact] ON 
+GO
+INSERT [dbo].[Contact] ([id], [Name], [SocialNumber], [Email], [Phone], [Pass]) VALUES (2, N'Jeferson Araújo de Oliveira                                                                                                                           ', N'08335282625', N'oliveira.jefersonaraujo@gmail.com                           ', N'3133550201 ', N'teste123                                          ')
+GO
+INSERT [dbo].[Contact] ([id], [Name], [SocialNumber], [Email], [Phone], [Pass]) VALUES (4, N'Jeferson Araújo de Oliveira                                                                                                                           ', N'08335282625', N'oliveira.jefersonaraujo@gmail.com                           ', N'3133550201 ', N'teste123                                          ')
+GO
+SET IDENTITY_INSERT [dbo].[Contact] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Login] ON 
+GO
+INSERT [dbo].[Login] ([id], [UserLogin], [Pass], [Name]) VALUES (1, N'User', N'User', N'Usuario')
+GO
+SET IDENTITY_INSERT [dbo].[Login] OFF
+GO
+USE [master]
+GO
+ALTER DATABASE [Yellow] SET  READ_WRITE 
+GO

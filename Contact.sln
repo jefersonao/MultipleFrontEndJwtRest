@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{64883FAA-0A93-4560-BF83-32D2C98165D4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Front", "Front", "{1FFD8CB4-8942-424D-8EBB-4FCB57951ABF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactApi", "Api\ContactApi.csproj", "{6ABA1317-48FD-49A6-85E1-EB38B25F6A95}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SlnItnens", "SlnItnens", "{2A3F1BB0-E58D-4CB8-A35A-4C2E50E104EB}"
+	ProjectSection(SolutionItems) = preProject
+		CreateBd.sql = CreateBd.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Angular", "Angular", "{1D72139E-C343-4832-8211-4DC7DE4ADFFB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6ABA1317-48FD-49A6-85E1-EB38B25F6A95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6ABA1317-48FD-49A6-85E1-EB38B25F6A95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6ABA1317-48FD-49A6-85E1-EB38B25F6A95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6ABA1317-48FD-49A6-85E1-EB38B25F6A95}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6ABA1317-48FD-49A6-85E1-EB38B25F6A95} = {64883FAA-0A93-4560-BF83-32D2C98165D4}
+		{1D72139E-C343-4832-8211-4DC7DE4ADFFB} = {1FFD8CB4-8942-424D-8EBB-4FCB57951ABF}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {77A1CC9F-E5FF-44EA-AA11-65FF95B75E24}
+	EndGlobalSection
+EndGlobal

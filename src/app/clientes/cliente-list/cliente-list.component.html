@@ -1,0 +1,24 @@
+
+<table class="table table-sm table-hover">
+  <tr *ngFor="let cliente of clienteService.clienteList">
+     <td>{{cliente.FirstName}} - {{cliente.LastName}}</td>
+     <td>{{cliente.nome}}</td>
+     <td>{{cliente.cnae}}</td>
+     <td>{{cliente.cnae2}}</td>
+     <td>{{cliente.idCliente}}</td>
+     <td>{{cliente.documento}}</td>
+     <td>{{cliente.dtAtualizacao}}</td>
+     <td>{{cliente.emailSintegra}}</td>
+     <td>{{cliente.tipoCliente}}</td>
+     <td>{{cliente.idpessoacerta1}}</td> 
+     <td>{{cliente.idpessoacerta2}}</td> 
+     <td>{{cliente.idpessoacerta3}}</td> 
+      <a class="btn" (click)="editSubmit(cliente)">
+        <i class="fa fa-pencil-square-o"></i>
+      </a>
+      <a class="btn text-danger" (click)="onDelete(cliente)">
+        <i class="fa fa-trash-o"></i>
+      </a>
+    
+  </tr>
+</table>  

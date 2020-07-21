@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Produtos - Easy Fashion</title>
+ <!-- Tell the browser to be responsive to screen width -->
+ <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+ <!-- Bootstrap 3.3.7 -->
+ <!-- Latest compiled and minified CSS -->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+ <!-- Font Awesome -->
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" 
+ integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+
+ <!-- Ionicons -->
+ <link rel="stylesheet" href="../../assets/AdminLTE.css">
+ <!--  AdminLTE Skins. Choose a skin from the css/skins
+      folder instead of downloading all of them to reduce the load.  -->
+ <link rel="stylesheet" href="../../assets/_all-skins.min.css">
+ 
+<!--   HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+ <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+ <!--[if lt IE 9]>
+ <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+ <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+ <![endif]-->
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+    <header class="main-header" id="Topo">
+        <a href="produtos.html" class="logo">
+            <span class="logo-mini"><b>E</b>asy</span>
+            <span class="logo-lg"><b>Easy</b>Fashion</span>
+        </a>
+        <nav class="navbar navbar-static-top">
+            <a href="#" class="sidebar-toggle fs-bars" data-toggle="push-menu" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                <li>
+                    <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                </li>
+                </ul>
+            </div>
+            <a class="btn-topo scroll" id="btn-topo" href="#Topo"><i class="fas fa-arrow-up"></i></a>
+        </nav>
+    </header>
+    <aside class="main-sidebar">
+        <section class="sidebar">
+
+        </section>
+    </aside>
+
+
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active scroll"><a href="#Informações">Informações <span class="sr-only">(current)</span></a></li>
+                    <li><a class="scroll" href="#Complemento">Complemento</a></li>
+                    <li><a class="scroll" href="#Adendos">Adendos</a></li>
+                    <li><a class="scroll" href="#Fiscal">Fiscal / Contábil</a></li>
+                </ul>
+            </div>
+        </div>
+        <form #produtoForm="ngForm" (ngSubmit)="onSubmit(produtoForm)"> 
+        <input type="hidden" name="idProduto" value="{{service.produto?.idProduto}}" #idProduto="ngModel" [(ngModel)]="service.produto.idProduto" >
+            <div class="col-md-12" id="Informações">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title"> Informações <i class="fas fa-info-circle"></i></h3>
+
+                        <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                        </button>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                      <section class="content">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="box-body">
+                                        <div class="row">
+                                            <div class="col-md-6 mrt">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fas fa-barcode"></i></span>
+                                                    
+                                                    <input type="number" class="form-control" placeholder="Código do Produto" name="codigoProduto" value="{{service.produto.codigoProduto}}" [(ngModel)]="service.produto.codigoProduto" >
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 mrt">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fas fa-barcode"></i></span>
+
+                                                    <input type="number" class="form-control" placeholder="Código Produto Venda" name="codigoProdutoVenda" value="{{service.produto.codigoProdutoVenda}}" [(ngModel)]="service.produto.codigoProdutoVenda">
+                                                    
+                                                    
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 mrt">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fas fa-hat-wizard"></i></span>
+                                                    <input type="text" class="form-control"  placeholder="Nome" value="{{service.produto?.Nome}}" name="Nome" [(ngModel)]="service.produto.Nome" >
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 mrt">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fas fa-briefcase"></i></span>
+                                                    <input type="text" class="form-control" placeholder="Nome Nota" name="Nota" value="{{service.produto?.Nota}}" [(ngModel)]="service.produto.Nota" >
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4 mrt">
+                                                
+                                                <select class="form-control">
+                                                    <option>Marca</option>
+                                                    <option>Fleche D'or</option>
+                                                    <option>Jes</option>
+                                                    <option>Doiss</option>                   
+                                                </select>
+                                            </div>
+
+                                            <div class="col-md-4 mrt">
+                                                <select class="form-control">
+                                                    <option>Linha</option>
+                                                    <option>Linha PRD</option>               
+                                                </select>
+                                            </div>
+
+                                            <div class="col-md-4 mrt">
+                                                <select class="form-control">
+                                                    <option>Grupo</option>
+                                                    <option>GP</option>
+                                                    <option>VE</option>               
+                                                </select>
+                                            </div>
+
+                                            <div class="col-md-4 mrt">
+                                                <select class="form-control">
+                                                    <option>Sub Grupo</option>
+                                                    <option>SP</option>        
+                                                </select>
+                                            </div>
+
+                                            <div class="col-md-4 mrt">
+                                                <!-- <input type="number" name="idColecao" [(ngModel)]="service.produto.idColecao" value="{{service.produto.idColecao}}"> -->
+                                            </div>
+
+                                            
+
+                                            <div class="col-md-4 mrt">
+                                                <select class="form-control">
+                                                    <option>Plano de Conta Débito</option>
+                                                    <option>1</option>   
+                                                    <option>2</option>        
+                                                    <option>3</option>   
+                                                </select>
+                                            </div>
+
+                                            <div class="col-md-8 mrt">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fas fa-calendar-alt"></i></span>
+                                                    <input type="date" class="form-control" >
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 mrt">
+                                                
+                                                <input type="number" name="idPlanoDeConta" placeholder="Id Plano de Conta"value="{{service.produto.idPlanoDeConta}}"  [(ngModel)]="service.produto.idPlanoDeConta" >
+                                                
+                                            </div>
+
+                                           <div class="col-md-6 mrt">
+                                                
+                                                <input type="number" name="idPlanoDeContaCredito" placeholder="Id Plano de Conta Credito" value="{{service.produto.idPlanoDeContaCredito}}"  [(ngModel)]="service.produto.idPlanoDeContaCredito">
+                                                
+                                            </div>
+
+                                            <div class="col-md-6 mrt">
+                                                
+                                                <input type="number" name="idPlanodeContaDebito" placeholder="Id Plano de Conta Debito" value="{{service.produto.idPlanodeContaDebito}}"  [(ngModel)]="service.produto.idPlanodeContaDebito">
+                                                
+                                            </div>
+
+                                            <div class="col-md-6 mrt">
+                                                <label>Proprio</label>
+                                                <label class="switch">
+                                                    <input type="checkbox">
+                                                    <span class="slider round"></span>
+                                                </label>
+                                            </div>
+
+                                            <div class="col-md-6 mrt">
+                                                <label>Ativo</label>
+                                                <label class="switch">
+                                                    <input type="checkbox">
+                                                    <span class="slider round"></span>
+                                                </label>
+                                            </div>
+                                            
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12" id="Complemento">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title"> Complemento <i class="fas fa-file-signature"></i></h3>
+
+                        <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                        </button>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <section class="content">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="box-body">
+                                        <div class="row">
+
+                                            <div class="col-md-12 mrt">
+                                                <div class="input-group">
+                                                    <input type="file" id="exampleInputFile">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 mrt">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fas fa-barcode"></i></span>
+                                                    <input type="text" class="form-control"  name="ncm" placeholder="ncm" [(ngModel)]="service.produto.ncm" value="{{service.produto.ncm}}">                                                  
+                                                   
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 mrt">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fas fa-barcode"></i></span>
+                                                    <input type="text" class="form-control" placeholder="Gerar Código de Barra">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12 mrt">
+                                                <input type="text" name="descricao" placeholder="descricao" value="{{service.produto.descricao}}" [(ngModel)]="service.produto.descricao">
+                                                <input type="text" name="idConta" placeholder="id Conta" value="{{service.produto.idConta}}" [(ngModel)]="service.produto.idConta">
+                                                <input type="text" name="idColecao"  placeholder="idColecao" value="{{service.produto.idColecao}}" [(ngModel)]="service.produto.idColecao">
+                                                <label>Em Desenvolvimento?</label>
+                                                <label class="switch">
+                                                    <input type="checkbox">
+                                                    <span class="slider round"></span>
+                                                </label>
+                                            </div>
+
+                                            <div class="col-md-12 mrt">
+                                                <div class="form-group">
+                                                    <textarea class="form-control" rows="3" placeholder="Digite sua Observação" name="observacao" value="{{service.produto.observacao}}" [(ngModel)]="service.produto.observacao" ></textarea>                                                   
+                                                   
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>                                    
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12" id="Adendos">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title"> Adendos <i class="fas fa-tshirt"></i></h3>
+
+                        <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                        </button>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <section class="content">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="box-body">
+                                        <div class="row">
+
+                                            <div class="col-md-11 mrt">
+                                                <select class="form-control">
+                                                    <option>Produtos Similares</option>
+                                                    <option>1</option>   
+                                                    <option>2</option>        
+                                                    <option>3</option>   
+                                                </select>
+                                            </div>
+
+                                            <div class="col-md-1 mrt">
+                                                <button class="btn btn-primary"><i class="fas fa-plus"></i></button>
+                                            </div>
+
+                                            <div class="col-xs-12 mrt">
+                                                <div class="box-body table-responsive no-padding">
+                                                    <table class="table table-hover">
+                                                    <tr>
+                                                        <th>Código do Produto</th>
+                                                        <th>Nome</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>183</td>
+                                                        <td>John Doe</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>219</td>
+                                                        <td>Alexander Pierce</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>657</td>
+                                                        <td>Bob Doe</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>175</td>
+                                                        <td>Mike Doe</td>
+                                                    </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-md-11 mrt">
+                                                <select class="form-control">
+                                                    <option>Composição</option>
+                                                    <option>1</option>   
+                                                    <option>2</option>        
+                                                    <option>3</option>   
+                                                </select>
+                                            </div>
+
+                                            <div class="col-md-1 mrt">
+                                                <button class="btn btn-primary"><i class="fas fa-plus"></i></button>
+                                            </div>
+                                            
+                                            <div class="col-xs-12 mrt">
+                                                <div class="box-body table-responsive no-padding">
+                                                    <table class="table table-hover">
+                                                    <tr>
+                                                        <th>ID Materia Prima</th>
+                                                        <th>Descrição</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>183</td>
+                                                        <td>John Doe</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>219</td>
+                                                        <td>Alexander Pierce</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>657</td>
+                                                        <td>Bob Doe</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>175</td>
+                                                        <td>Mike Doe</td>
+                                                    </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>                                    
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12" id="Fiscal">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title"> Fiscal/Contábil <i class="fas fa-calculator"></i></h3>
+
+                        <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                        </button>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <section class="content">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="box-body">
+                                        <div class="row">
+
+                                            <div class="col-md-6 mrt">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fas fa-minus"></i></span>
+                                                    <input type="number" class="form-control" placeholder="ICMS Saída"value="{{service.produto.icmsSaida}}" name="icmsSaida" [(ngModel)]="service.produto.icmsSaida">
+                                                    
+                                                   
+                                                    
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 mrt">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fas fa-minus"></i></span>
+                                                    <input type="number" class="form-control" placeholder="IPI Saída" value="{{service.produto.ipiSaida}}" name="ipiSaida" [(ngModel)]="service.produto.ipiSaida">
+                                                    
+                                                    
+                                                    
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 mrt">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fas fa-minus"></i></span>
+                                                    <input type="number" class="form-control" placeholder="PIS Saída"value="{{service.produto.pisSaida}}" name="pisSaida" [(ngModel)]="service.produto.pisSaida">
+                                                   
+                                                   
+                                                    
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 mrt">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fas fa-minus"></i></span>
+                                                    <input type="number" class="form-control" placeholder="Cofins Saída"value="{{service.produto.cofinsSaida}}" name="cofinsSaida" [(ngModel)]="service.produto.cofinsSaida">   
+                                                    
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 mrt">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fas fa-plus"></i></span>
+                                                    <input type="number" class="form-control" placeholder="ICMS Entrada" value="{{service.produto.icmsEntrada}}" name="icmsEntrada" [(ngModel)]="service.produto.icmsEntrada">
+                                                   
+                                                  
+                                                    
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 mrt">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fas fa-plus"></i></span>
+                                                    <input type="number" class="form-control" placeholder="IPI Entrada" name="ipiEntrada" value="{{service.produto.ipiEntrada}}" [(ngModel)]="service.produto.ipiEntrada" >
+                                                    
+                                                   
+                                                    
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 mrt">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fas fa-plus"></i></span>
+                                                    <input type="number" class="form-control" placeholder="PIS Entrada" name="pisEntrada" value="{{service.produto.pisEntrada}}" [(ngModel)]="service.produto.pisEntrada">
+                                                   
+                                                  
+                                                    
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 mrt">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fas fa-plus"></i></span>
+                                                    <input type="number" class="form-control" placeholder="Cofins Entrada" name="cofinsEntrada" value="{{service.produto.cofinsEntrada}}" [(ngModel)]="service.produto.cofinsEntrada">
+                                                    
+                                                   
+                                                    
+                                                </div>
+                                            </div>
+
+                                           
+
+                                        </div>
+                                    </div>
+                                </div>                                    
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12" id="buttons">
+              <div class="box box-primary">
+                <div class="box-header with-border">
+      
+                  
+      
+                  <div class="box-tools pull-right">
+                  <button type="submit" class="btn btn-primary btn-lg mrt" >Cadastrar Produto</button>
+                </div>
+                <div class="col-md-4">
+                   <!-- Trigger the modal with a button -->
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#produtoModal">Consultar Produto</button>
+                </div>
+                
+               
+                  
+          
+              </div> 
+            </div>
+            </div>
+
+        </form>
+
+        
+      <!-- Modal -->
+      <div id="produtoModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-sm">
+          
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Consulta</h4>
+            </div>
+            <div class="modal-body">
+              <input type="search" placeholder="Insira o ID" name = "idProduto" #idProduto="ngModel" [(ngModel)]="service.produto.idProduto" > 
+             
+                            
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal" >Fechar</button>
+              <button type="submit" class="btn btn-info " data-toggle="modal" data-target="#produtoModal" (click)=onClick(idProduto.value)>Carregar </button>
+              
+              
+
+              
+              
+            </div>
+          </div>
+
+          
+         
+
+        </div>
+  </div>
+
+    </div>
+  
+
+  <footer class="main-footer">
+    <div class="pull-right hidden-md">
+      <b>Version</b> 2.4.0
+    </div>
+    <strong>Copyright &copy; 2018 <a href="">Easy Fashion</a>.</strong> Todos direitos reservados.
+  </footer>
+
+
+  <aside class="control-sidebar control-sidebar-dark">
+    <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+      <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa "></i></a></li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane" id="control-sidebar-home-tab">
+
+      </div>
+      <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+
+    </div>
+  </aside>
+  <div class="control-sidebar-bg"></div>
+</div>
+<!-- jQuery 3 -->
+<script src="../../../../node_modules/jquery/dist/jquery.js"></script>
+<script src="../../assets/jquery.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- AdminLTE App -->
+<script src="../../assets/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../../assets/demo.js"></script>
+</body>
+</html>
